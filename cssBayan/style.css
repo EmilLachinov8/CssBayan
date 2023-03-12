@@ -1,17 +1,17 @@
 .wrapper {
   width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: auto;
+  margin-bottom: 3em;
 }
 .header {
-  display: flex;
-  justify-content: center;
-  width: 80%;
-  margin: 2em 0;
-  height: auto;
+  margin: 2em 4em 1em 0;
   font-size: 3rem;
+  align-self: flex-start;
 }
 .body {
-  background: rgb(0, 36, 26);
   background: linear-gradient(
     90deg,
     rgba(0, 36, 26, 0.09987745098039214) 0%,
@@ -22,10 +22,8 @@
 }
 .objects {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 10em;
   gap: 2em;
 }
 .table {
@@ -38,20 +36,21 @@
 .line {
   height: 1px;
   background: black;
-  width: 45em;
+  width: 64em;
+  margin-top: 3em;
 }
 .grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 20% 80%;
-  grid-auto-rows: minmax(20px, 400px);
+  grid-row-gap: 1rem;
   width: 80%;
 }
 .question {
   font-size: 3rem;
   width: 15em;
   height: 2em;
-  grid-column: 2/6;
+  grid-column: 1/6;
 }
 .fa-solid {
   width: 1em;
@@ -73,9 +72,8 @@ input:checked ~ .fa-solid {
 }
 input:checked ~ .answer {
   display: flex;
-  color: rgb(27, 110, 124);
 }
-input:checked ~ .question{
+a.question:active {
   color: rgb(27, 110, 124);
 }
 .grid:hover > .answer {
@@ -104,18 +102,42 @@ input:checked ~ .question{
 }
 @media(min-width: 821px) {
   .fa-solid {
+    font-size: 5rem;
     visibility: hidden;
   }
   .objects:hover span.fa-solid {
     visibility: visible;
   }
-  p.question {
+  .question {
     color: rgb(27, 110, 124);
   }
-  input:checked ~ p.question {
+  input:checked ~ a.question {
     color: #000;
   }
-  .objects:hover p.question {
+  .objects:hover a.question {
     color: #000;
   }
+  .objects:hover a.question:active {
+    color: rgb(27, 110, 124);
+  }
+  .table {
+    width: 75em;
+  }
+  .header {
+    align-self: unset;
+    font-size: 4rem;
+  }
+  .answer {
+    width: 40em;
+    height: 30em;
+  }
+  .answer__text {
+    font-size: 4rem;
+  }
+  .line {
+    width: 60em;
+  }
+}
+@media(min-width: 1921px) {
+
 }
