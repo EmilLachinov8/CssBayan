@@ -76,14 +76,8 @@ input:checked ~ .answer {
 a.question:active {
   color: rgb(27, 110, 124);
 }
-.grid:hover > .answer {
-  display: flex;
-}
-.grid:hover > .fa-solid {
-  transform: rotate(45deg);
-}
 .answer {
-  width: 45em;
+  width: 42em;
   height: 24em;
   display: none;
   align-items: center;
@@ -101,6 +95,12 @@ a.question:active {
   width: 19em;
 }
 @media(min-width: 821px) {
+  .grid:hover > .answer {
+    display: flex;
+  }
+  .grid:hover > .fa-solid {
+    transform: rotate(45deg);
+  }
   .fa-solid {
     font-size: 5rem;
     visibility: hidden;
@@ -124,8 +124,9 @@ a.question:active {
     width: 75em;
   }
   .header {
-    align-self: unset;
-    font-size: 4rem;
+    min-width: fit-content;
+    align-self: center;
+    margin-right: 9em;
   }
   .answer {
     width: 40em;
@@ -137,7 +138,30 @@ a.question:active {
   .line {
     width: 60em;
   }
+  .image {
+    width: 24em;
+  }
 }
 @media(min-width: 1921px) {
-
+  .header {
+    font-size: 5em;
+    align-self: center;
+    margin-right: 4em;
+  }
+  .question {
+    font-size: 4em;
+  }
+  .table {
+    width: 92em;
+  }
+  .answer {
+    width: 49em;
+    height: 38em;
+  }
+  .image {
+    width: 28em;
+  }
+  .line {
+    width: 73em;
+  }
 }
