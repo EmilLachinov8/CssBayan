@@ -1,15 +1,11 @@
 .wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 80%;
-  flex-direction: column;
   margin: auto;
 }
 .header {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 80%;
   margin: 2em 0;
   height: auto;
   font-size: 3rem;
@@ -30,6 +26,7 @@
   align-items: center;
   flex-direction: column;
   margin-bottom: 10em;
+  gap: 2em;
 }
 .table {
   display: flex;
@@ -41,26 +38,84 @@
 .line {
   height: 1px;
   background: black;
-  width: 60em;
+  width: 45em;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 20% 80%;
+  grid-auto-rows: minmax(20px, 400px);
+  width: 80%;
 }
 .question {
   font-size: 3rem;
-  width: 20em;
-  text-align: center;
-  margin: 1em 0 0 0;
+  width: 15em;
+  height: 2em;
+  grid-column: 2/6;
+}
+.fa-solid {
+  width: 1em;
+  height: 1em;
+  justify-self: center;
+  font-size: 3em;
+  transition: all 0.2s ease-in-out;
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+}
+input {
+  display: none;
+}
+.grid > input:checked .answer{
+  display: flex;
+}
+input:checked ~ .fa-solid {
+  transform: rotate(45deg);
+}
+input:checked ~ .answer {
+  display: flex;
+  color: rgb(27, 110, 124);
+}
+input:checked ~ .question{
+  color: rgb(27, 110, 124);
+}
+.grid:hover > .answer {
+  display: flex;
+}
+.grid:hover > .fa-solid {
+  transform: rotate(45deg);
 }
 .answer {
-  width: 60em;
-  height: 45em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  width: 45em;
+  height: 24em;
+  display: none;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
   background-color: rgb(180, 217, 224);
+  transition: all 1s ease;
+  grid-column: 2/6;
 }
 .answer__text {
-  font-size: 3rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 .image {
-  width: 40em;
+  width: 19em;
+}
+@media(min-width: 821px) {
+  .fa-solid {
+    visibility: hidden;
+  }
+  .objects:hover span.fa-solid {
+    visibility: visible;
+  }
+  p.question {
+    color: rgb(27, 110, 124);
+  }
+  input:checked ~ p.question {
+    color: #000;
+  }
+  .objects:hover p.question {
+    color: #000;
+  }
 }
